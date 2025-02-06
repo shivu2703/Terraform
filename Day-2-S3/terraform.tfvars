@@ -1,1 +1,1 @@
-bucket_name="shivu-terraform-test"
+bucket_name="shivu-terraform-new-test"
