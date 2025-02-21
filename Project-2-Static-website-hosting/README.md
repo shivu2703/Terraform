@@ -1,0 +1,1 @@
+This Terraform configuration creates an S3 bucket for static website hosting with index.html as the main page and error.html for errors. It allows public access by modifying the bucket policy and disabling public access restrictions, enabling users to access the website files via the S3 URL.
