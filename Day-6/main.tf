@@ -1,15 +1,10 @@
 provider "aws" {
-  region = us-east-1
-}
-
-variable "ami" {
-  description = "ami id"
+  region = "us-east-1"
 }
 
 variable "instance_type" {
-  description = "instance type of ec2"
+  description = "instance type of an ec2 instance ex: t2.micro"
   type = map(string)
-
   default = {
     "dev" = "t2.micro"
     "stage" = "t2.medium"
@@ -17,8 +12,13 @@ variable "instance_type" {
   }
 }
 
-module "ec2_instance" {
-  source = "./modules/ec2_instance"
-  ami = var.ami
+variable "ami_id" {
+  description = "Ami id to create an ec2 instance"
+  type = string
+}
+
+module "ec2" {
+  source = "./module/ec2"
+  ami_id = var.ami_id
   instance_type = lookup(var.instance_type,terraform.workspace,"t2.micro")
 }

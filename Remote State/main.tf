@@ -2,6 +2,10 @@ provider "aws" {
   region = "us-east-1"
 }
 
+resource "aws_s3_bucket" "s3_bucket" {
+    bucket = "shivangi-s3-demo-xyz-1"
+}
+
 resource "aws_instance" "instance_for_utilization" {
   ami = "ami-0e2c8caa4b6378d8c"
   instance_type = "t2.micro"
